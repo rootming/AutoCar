@@ -6,6 +6,7 @@
 uint8_t *temp;
 Package rec;
 uint32_t values[3] = { 0, 0, 0 };
+unsigned long time;
 void(*autoExec)();
 
 
@@ -287,15 +288,16 @@ void loop()
 		if (Serial.peek() == _PKGSTART) {
 			Serial.readBytes((uint8_t *)&rec, sizeof(Package));
 			if (rec.end == _PKGEND) {
-				Serial.println("ACCEPT");
-				Serial.print("Raw:0x");
-				Serial.println(rec.command, HEX);
+				//Serial.println("ACCEPT");
+				//Serial.print("Raw:0x");
+				//Serial.println(rec.command, HEX);
 				execCMD(rec);
+				time = millis();
 				//autoExec = busy;
 
 			}
 			else {
-				Serial.println("Recived Head, but check error");
+				//Serial.println("Recived Head, but check error");
 				memset(&rec, 5, 0);
 				//autoExec = standby;
 			}
@@ -305,14 +307,7 @@ void loop()
 			Serial.read();	
 		}
 	}
-	else {
+	if (millis() - time > _TIME_OUT)
 		autoExec = motorStopAll;
-		delay(200);
-	}
 	autoRun();
-	//delay(100);
-	//autoExec = motorStopAll;
-	//delay(100);
-	//autoExec = standby;
-	
 }

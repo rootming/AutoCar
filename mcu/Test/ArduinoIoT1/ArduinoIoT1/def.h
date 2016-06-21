@@ -33,6 +33,8 @@
 
 #define COMMAND_COUNT 9
 
+#define _TIME_OUT 200
+
 enum COMMAND_LIST {
 	CAR_GL = 10, CAR_FORWARD,
 	CAR_GR, CAR_LEFT,

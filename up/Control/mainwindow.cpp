@@ -37,6 +37,8 @@ MainWindow::MainWindow(QWidget *parent)
     commandStr[6] = "BL";
     commandStr[7] = "Back";
     commandStr[8] = "BR";
+    commandStr[9] = "CW";
+    commandStr[10] = "CCW";
     for(uint8_t i = 0 ; i < COMMAND_COUNT; i++)
         controlButton[i].setText(commandStr[i]);
 
@@ -65,6 +67,8 @@ MainWindow::MainWindow(QWidget *parent)
             control->addWidget(&controlButton[i++], y, x, 1, 1);
         }
     }
+    control->addWidget(&controlButton[9], 4, 0, 1, 1);
+    control->addWidget(&controlButton[10], 4, 2, 1, 1);
     //control->setEnabled(false);
 
     top->addLayout(rxLayout, 0, 0);
