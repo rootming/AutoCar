@@ -162,7 +162,7 @@ void MainWindow::serialRead()
     dataText->setTextColor(QColor(0, 200, 100));
     this->dataText->insertPlainText(data);
     this->dataText->moveCursor(QTextCursor::End);
-    this->dataText->insertPlainText("\r\n");
+    //this->dataText->insertPlainText("\r\n");
 }
 
 void MainWindow::connectSerial()
@@ -231,9 +231,9 @@ void MainWindow::sendData()
 
 void MainWindow::commandInit()
 {
-    for(uint8_t i = 0; i < COMMAND_COUNT; i++){
+    for(uint8_t i = 0; i <  COMMAND_COUNT; i++){
         commandList[commandStr[i]].start = _PKGSTART;
-        commandList[commandStr[i]].command = i;
+        commandList[commandStr[i]].command = i + COMMAND_START;
         commandList[commandStr[i]].value = '\0';
         commandList[commandStr[i]].end = _PKGEND;
     }
@@ -248,7 +248,7 @@ void MainWindow::commandSender(ControlPushButton *sender)
     this->dataText->insertPlainText((char *)&commandList[sender->text()].command);
     this->dataText->insertPlainText((char *)&commandList[sender->text()].value);
     this->dataText->insertPlainText((char *)&commandList[sender->text()].end);
-    this->dataText->insertPlainText("\n");
+    this->dataText->insertPlainText("\r\n");
     this->dataText->moveCursor(QTextCursor::End);
     dataText->setAlignment(Qt::AlignLeft);
 
