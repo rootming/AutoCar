@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+
+    tools:context=".ControlActivity"
+    android:theme="@android:style/Theme.Material.Light.NoActionBar.Fullscreen"><![CDATA[
+    />
+
+    ]]>
+
+    <io.github.controlwear.virtual.joystick.android.JoystickView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/jyvLeft"
+        custom:JV_buttonColor="#00b7ee"
+        custom:JV_borderColor="#00b7ee"
+        custom:JV_backgroundColor="#2f00b7ee"
+        custom:JV_borderWidth="3dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="false"
+        android:layout_marginTop="550px"
+        android:layout_marginLeft="200px" />
+
+    <io.github.controlwear.virtual.joystick.android.JoystickView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/jyvRight"
+        custom:JV_buttonColor="#00b7ee"
+        custom:JV_borderColor="#00b7ee"
+        custom:JV_backgroundColor="#2f00b7ee"
+        custom:JV_borderWidth="3dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="200px"
+        android:layout_marginTop="550px" />
+</RelativeLayout>
