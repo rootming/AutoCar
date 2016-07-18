@@ -72,6 +72,7 @@ void sendToClient(void)
         cerr << "Bind failed.\n";
         exit(1);
     }
+    std::this_thread::sleep_for(std::chrono::milliseconds(10));
     cout << "Server(UDP) is running, Port: " << _UDP_PORT << endl;
     while(1){
         FD_ZERO(&readFD);
