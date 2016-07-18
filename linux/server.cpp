@@ -72,7 +72,7 @@ void sendToClient(void)
         cerr << "Bind failed.\n";
         exit(1);
     }
-    cout << "Server(UDP) is running, Port: " << _UDP_PORT << "\n";
+    cout << "Server(UDP) is running, Port: " << _UDP_PORT << endl;
     while(1){
         FD_ZERO(&readFD);
         FD_SET(serverFD, &readFD);
@@ -82,7 +82,7 @@ void sendToClient(void)
         }
         uint8_t *buffer = new uint8_t[_BUFFER_SIZE];
         string ip;
-        getIP("eth0", ip);
+        getIP("eth1", ip);
         if (FD_ISSET(serverFD ,&readFD)) {
             recvLen = recvfrom(serverFD, buffer, _BUFFER_SIZE, 0, (struct sockaddr*)&clientAddr, &socketLen);
             if(recvLen > 0)
@@ -92,8 +92,6 @@ void sendToClient(void)
         }
         delete []buffer;
     }
-
-
 
 }
 
@@ -126,7 +124,7 @@ int main(void)
         cerr << "Listen error.\n";
         exit(1);
     }
-    cout << "Server(TCP) is running, Port: " << _SERVER_PORT << "\n";
+    cout << "Server(TCP) is running, Port: " << _SERVER_PORT << endl;
     while(1){
 
         if((clientFD = accept(serverFD, (struct sockaddr *)&clientAddr, &socketLen)) == -1){
