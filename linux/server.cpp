@@ -14,16 +14,16 @@
 
 using namespace std;
 
+const char *defalutInterface = "eth1";
 
-bool getIP(string interface, string &ip)
+bool getIP(const char *interface, string &ip)
 {
     struct ifaddrs *ifAddrStruct = NULL;  
     void * tmpAddrPtr = NULL;  
     bool found = false;
     getifaddrs(&ifAddrStruct);  
-    while (ifAddrStruct != NULL)   
-    {  
-        if(strcmp(ifAddrStruct->ifa_name, interface.c_str()) == 0){
+    while (ifAddrStruct != NULL){  
+        if(strcmp(ifAddrStruct->ifa_name, interface) == 0){
             if (ifAddrStruct->ifa_addr->sa_family == AF_INET){   
                 // check it is IP4  
                 // is a valid IP4 Address  
@@ -47,6 +47,7 @@ bool getIP(string interface, string &ip)
         }
         ifAddrStruct = ifAddrStruct->ifa_next;
     }  
+    cout << defalutInterface << endl;
     cout << "Interface not found.\n";
     return found;
 }
@@ -83,11 +84,11 @@ void sendToClient(void)
         }
         uint8_t *buffer = new uint8_t[_BUFFER_SIZE];
         string ip;
-        getIP("eth1", ip);
+        getIP(defalutInterface, ip);
         if (FD_ISSET(serverFD ,&readFD)) {
             recvLen = recvfrom(serverFD, buffer, _BUFFER_SIZE, 0, (struct sockaddr*)&clientAddr, &socketLen);
             if(recvLen > 0)
-                cout << "Recived client require, IP: " << (char *)inet_ntoa(clientAddr.sin_addr) << "\n";
+                cout << "Received client require, IP: " << (char *)inet_ntoa(clientAddr.sin_addr) << "\n";
             memcpy(buffer, ip.c_str(), ip.length() + 1);
             recvLen = sendto(serverFD, buffer, _BUFFER_SIZE, 0, (struct sockaddr*)&clientAddr, socketLen);
         }
@@ -98,8 +99,10 @@ void sendToClient(void)
 
 
 
-int main(void)
+int main(int argc, char *argv[])
 {
+    if(argc > 1)
+        defalutInterface = argv[1];
     int serverFD, clientFD;
     struct sockaddr_in serverAddr;
     struct sockaddr_in clientAddr;
@@ -147,7 +150,7 @@ int main(void)
                 cout << recvLen << "\n";
                 cout << packageLen << "\n";
                 if(recvLen - packageLen == _HEAD_LENGTH){
-                    cout << "Recived header package.\n";
+                    cout << "Received header package.\n";
                     if(((PackageHead *)buffer)->magic != _MAGIC_NUM){
                         cerr << "Broken header package, drop.\n";
                         continue;
