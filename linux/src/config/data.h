@@ -1,8 +1,6 @@
-#ifndef __DATA_H__
-#define __DATA_H__
+#pragma once
 
-
-#include <stdint.h>
+#include <inttypes.h>
 
 #define _MAGIC_NUM      0x16
 #define _BUFFER_SIZE    10240
@@ -20,4 +18,4 @@ typedef struct _PackageHead
 } PackageHead;
 
 #define _HEAD_LENGTH sizeof(PackageHead)
-#endif
+
