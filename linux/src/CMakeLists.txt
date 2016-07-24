@@ -12,7 +12,7 @@ add_subdirectory(motor)
 link_directories(${SRC_PART_DIR})
 
 add_executable(Server ${DIR_SRCS})
-TARGET_LINK_LIBRARIES(Server motor_lib base_lib wiringPi pthread)
+TARGET_LINK_LIBRARIES(Server motor_lib base_lib wiringPi pthread m)
 
 set(CMAKE_BUILD_TYPE "Debug")
 set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -ggdb -std=c++11")
