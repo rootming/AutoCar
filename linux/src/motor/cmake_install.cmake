@@ -1,4 +1,4 @@
-# Install script for directory: /home/rootming/AutoCar/linux/src/base
+# Install script for directory: /home/rootming/AutoCar/linux/src/motor
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

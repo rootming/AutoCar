@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 #include <wiringPi.h>
 #include <softPwm.h>
 
@@ -34,23 +35,30 @@ void Motor::setPin(int left, int right, int INT0, int INT1, int INT2, int INT3)
     pinMode(proINT1, OUTPUT);
     pinMode(proINT2, OUTPUT);
     pinMode(proINT3, OUTPUT);
+
+    digitalWrite(proINT0, LOW);
+    digitalWrite(proINT1, LOW);
+    digitalWrite(proINT2, LOW);
+    digitalWrite(proINT3, LOW);
+
+    
 }
 
 void Motor::setLeftSpeed(int speed)
 {
     if(speed > 0){
-        digtalWrite(proINT0, HIGH);
-        digtalWrite(proINT1, LOW);
+        digitalWrite(proINT0, HIGH);
+        digitalWrite(proINT1, LOW);
 
     }
     else if(speed == 0){
-        digtalWrite(proINT0, LOW);
-        digtalWrite(proINT1, LOW);
+        digitalWrite(proINT0, LOW);
+        digitalWrite(proINT1, LOW);
 
     }
     else{
-        digtalWrite(proINT0, LOW);
-        digtalWrite(proINT1, HIGH);
+        digitalWrite(proINT0, LOW);
+        digitalWrite(proINT1, HIGH);
     }
     softPwmWrite(proLeftPin, abs(speed));
     proLeftSpeed = speed;
@@ -59,18 +67,18 @@ void Motor::setLeftSpeed(int speed)
 void Motor::setRightSpeed(int speed)
 {
     if(speed > 0){
-        digtalWrite(proINT2, HIGH);
-        digtalWrite(proINT3, LOW);
+        digitalWrite(proINT2, HIGH);
+        digitalWrite(proINT3, LOW);
 
     }
     else if(speed == 0){
-        digtalWrite(proINT2, LOW);
-        digtalWrite(proINT3, LOW);
+        digitalWrite(proINT2, LOW);
+        digitalWrite(proINT3, LOW);
 
     }
     else{
-        digtalWrite(proINT2, LOW);
-        digtalWrite(proINT3, HIGH);
+        digitalWrite(proINT2, LOW);
+        digitalWrite(proINT3, HIGH);
     }
     softPwmWrite(proRightPin, abs(speed));
     proRightSpeed = speed;
