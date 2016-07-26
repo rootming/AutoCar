@@ -88,7 +88,7 @@ void sendToClient(void)
         if (FD_ISSET(serverFD ,&readFD)) {
             recvLen = recvfrom(serverFD, buffer, _BUFFER_SIZE, 0, (struct sockaddr*)&clientAddr, &socketLen);
             if(recvLen > 0)
-                cout << "Received client require, IP: " << (char *)inet_ntoa(clientAddr.sin_addr) << "\n";
+                cout << "Received client request, IP: " << (char *)inet_ntoa(clientAddr.sin_addr) << "\n";
             memcpy(buffer, ip.c_str(), ip.length() + 1);
             recvLen = sendto(serverFD, buffer, _BUFFER_SIZE, 0, (struct sockaddr*)&clientAddr, socketLen);
         }
@@ -156,7 +156,7 @@ int main(int argc, char *argv[])
                         continue;
                     }
                     if(((PackageHead *)buffer)->command == _CMD_DISCONNECT){
-                        cout << "Client require disconnect.\n";
+                        cout << "Client request disconnect.\n";
                         break;
                     }
                     cout << "Expect data length: " << packageLen << "\n";
