@@ -10,11 +10,7 @@ using namespace std;
 
 Motor::Motor(int speed, int range): proLeftSpeed(speed), proRightSpeed(speed), proRange(range)
 {
-    if(base == nullptr){
-        cerr << "Now init GPIO" << endl;
-        initGPIO();
-    }
-    setPin();
+    
 }
 
 Motor::~Motor()
@@ -25,7 +21,7 @@ Motor::~Motor()
 
 void Motor::setPin(int left, int right, int INT0, int INT1, int INT2, int INT3)
 {
-
+    inited = true;
     softPwmStop(proLeftPin);
     softPwmStop(proRightPin);
 
@@ -46,6 +42,10 @@ void Motor::setPin(int left, int right, int INT0, int INT1, int INT2, int INT3)
 
 void Motor::setLeftSpeed(int speed)
 {
+    if(!isInit()){
+        cerr << "Need set PIN." << endl;
+        return;
+    }
     if(speed > 0){
         digitalWrite(proINT0, HIGH);
         digitalWrite(proINT1, LOW);
@@ -66,6 +66,10 @@ void Motor::setLeftSpeed(int speed)
 
 void Motor::setRightSpeed(int speed)
 {
+    if(!isInit()){
+        cerr << "Need set PIN." << endl;
+        return;
+    }
     if(speed > 0){
         digitalWrite(proINT2, HIGH);
         digitalWrite(proINT3, LOW);
