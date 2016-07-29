@@ -61,8 +61,8 @@ void UltraSonic::autoGetDistance(void)
         long travelTime = micros() - startTime;
 
         //Get distance in cm
-        index = (index + 1) % 2;
         distance[index] = travelTime / 58;
+        index = (index + 1) % 2;
         std::this_thread::sleep_for (std::chrono::milliseconds(_SR_SCAN_DELAY));
     }
     cerr << "Auto scan stop.\n";
