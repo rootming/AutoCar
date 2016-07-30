@@ -7,10 +7,12 @@ using namespace std;
 
 int main()
 {
-    Motor test(0);
     UltraSonic test2;
+    Motor motor(0, 255);
     test2.setPin(0, 1);
     test2.autoScan();
+    motor.setPin(6, 7, 21, 22, 23, 24);
+    motor.setLeftSpeed(100);
     for(;;){
         cout << test2.getDistance() << endl;
         sleep(1);
