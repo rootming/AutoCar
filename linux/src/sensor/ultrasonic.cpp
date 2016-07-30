@@ -1,6 +1,5 @@
 #include <wiringPi.h>
 #include <softPwm.h>
-
 #include "ultrasonic.h"
 #include "../config/config.h"
 
@@ -36,23 +35,24 @@ void UltraSonic::autoScan(void)
         cerr << "Need set PIN." << endl;
         return;
     }
-    start = true;
     scanThread = new thread([&]{ autoGetDistance(); });
 }
 
 double UltraSonic::getDistance(void)
 {
+    if(!start)
+        return 0.0;
     return distance[index];
 }
 
 void UltraSonic::autoGetDistance(void)
 {
     cerr << "Auto scan start.\n";
+    start = true;
     while(start == true){
         digitalWrite(proTrigPin, HIGH);
         delayMicroseconds(20);
         digitalWrite(proTrigPin, LOW);
-
         //Wait for echo start
         while(digitalRead(proEchoPin) == LOW);
         //Wait for echo end
@@ -61,7 +61,7 @@ void UltraSonic::autoGetDistance(void)
         long travelTime = micros() - startTime;
 
         //Get distance in cm
-        distance[index] = travelTime / 58;
+        distance[index] = travelTime / 58.0;
         index = (index + 1) % 2;
         std::this_thread::sleep_for (std::chrono::milliseconds(_SR_SCAN_DELAY));
     }
