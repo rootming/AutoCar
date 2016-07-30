@@ -22,5 +22,6 @@ class UltraSonic: public Base
         double distance[2];
         void autoGetDistance(void);
         thread *scanThread;
+//        mutex lock;
 
 };
