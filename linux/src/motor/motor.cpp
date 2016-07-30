@@ -22,9 +22,14 @@ Motor::~Motor()
 void Motor::setPin(int left, int right, int INT0, int INT1, int INT2, int INT3)
 {
     inited = true;
-    softPwmStop(proLeftPin);
-    softPwmStop(proRightPin);
-
+//    softPwmStop(proLeftPin);
+//    softPwmStop(proRightPin);
+    proLeftPin = left;
+    proRightPin = right;
+    proINT0 = INT0; 
+    proINT1 = INT1; 
+    proINT2 = INT2; 
+    proINT3 = INT3; 
     softPwmCreate(proLeftPin, proLeftSpeed, proRange);
     softPwmCreate(proRightPin, proRightSpeed, proRange);
     pinMode(proINT0, OUTPUT);

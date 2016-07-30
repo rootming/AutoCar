@@ -13,6 +13,7 @@ int main()
     test2.autoScan();
     motor.setPin(6, 7, 21, 22, 23, 24);
     motor.setLeftSpeed(100);
+    motor.setRightSpeed(100);
     for(;;){
         cout << test2.getDistance() << endl;
         sleep(1);
