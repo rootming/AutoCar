@@ -10,10 +10,11 @@ include_directories(${SRC_PART_DIR})
 add_subdirectory(base)
 add_subdirectory(motor)
 add_subdirectory(sensor)
+add_subdirectory(led)
 link_directories(${SRC_PART_DIR})
 
 add_executable(Server ${DIR_SRCS})
-TARGET_LINK_LIBRARIES(Server motor_lib base_lib sensor_lib wiringPi pthread m)
+TARGET_LINK_LIBRARIES(Server motor_lib base_lib sensor_lib led_lib wiringPi pthread m)
 
 set(CMAKE_BUILD_TYPE "Debug")
 set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -ggdb -std=c++11")
