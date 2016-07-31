@@ -1,4 +1,5 @@
 #include "motor/motor.h"
+#include "led/led.h"
 #include "sensor/ultrasonic.h"
 #include <iostream>
 #include <unistd.h>
@@ -7,10 +8,15 @@ using namespace std;
 
 int main()
 {
-    UltraSonic test2;
+    UltraSonic us;
     Motor motor(0, 255);
-    test2.setPin(0, 1);
-    test2.autoScan();
+    LED led(100, 255);
+    led.setPin(4);
+    led.on();
+    sleep(1);
+    led.off();
+    us.setPin(0, 1);
+    us.autoScan();
     motor.setPin(2, 3, 22, 23, 24, 25);
     motor.setLeftSpeed(-100);
     motor.setRightSpeed(100);
@@ -20,7 +26,7 @@ int main()
     sleep(2);
 
     for(int i = 0; i < 5; i++){
-        cout << test2.getDistance() << endl;
+        cout << us.getDistance() << endl;
         sleep(1);
     }
     cin.get();

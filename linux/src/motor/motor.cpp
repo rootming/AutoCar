@@ -21,8 +21,6 @@ Motor::~Motor()
     digitalWrite(proINT1, LOW);
     digitalWrite(proINT2, LOW);
     digitalWrite(proINT3, LOW);
-
-
 }
 
 void Motor::setPin(int left, int right, int INT0, int INT1, int INT2, int INT3)
