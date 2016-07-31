@@ -17,6 +17,12 @@ Motor::~Motor()
 {
     softPwmStop(proLeftPin);
     softPwmStop(proRightPin);
+    digitalWrite(proINT0, LOW);
+    digitalWrite(proINT1, LOW);
+    digitalWrite(proINT2, LOW);
+    digitalWrite(proINT3, LOW);
+
+
 }
 
 void Motor::setPin(int left, int right, int INT0, int INT1, int INT2, int INT3)
@@ -30,8 +36,10 @@ void Motor::setPin(int left, int right, int INT0, int INT1, int INT2, int INT3)
     proINT1 = INT1; 
     proINT2 = INT2; 
     proINT3 = INT3; 
+
     softPwmCreate(proLeftPin, proLeftSpeed, proRange);
     softPwmCreate(proRightPin, proRightSpeed, proRange);
+
     pinMode(proINT0, OUTPUT);
     pinMode(proINT1, OUTPUT);
     pinMode(proINT2, OUTPUT);
