@@ -1,6 +1,8 @@
 #pragma once
+#include "../config/config.h"
+#include "../base/base.h"
 
-class Brightness
+class Brightness: public Base
 {
     public:
         explicit Brightness(const Brightness &) = delete;
