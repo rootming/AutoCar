@@ -17,3 +17,6 @@
 #define _MOTOR_INT3_PIN         25
 
 #define _SR_SCAN_DELAY          100
+
+#define _ADC_ADDRESS            0x48
+#define _BG_PIN                 80

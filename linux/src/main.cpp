@@ -1,6 +1,7 @@
 #include "motor/motor.h"
 #include "led/led.h"
 #include "sensor/ultrasonic.h"
+#include "sensor/brightness.h"
 #include <iostream>
 #include <unistd.h>
 
@@ -11,6 +12,7 @@ int main()
     UltraSonic us;
     Motor motor(0, 255);
     LED led(100, 255);
+    Brightness bg;
     led.setPin(4);
     led.on();
     sleep(1);
@@ -27,6 +29,7 @@ int main()
 
     for(int i = 0; i < 5; i++){
         cout << us.getDistance() << endl;
+        cout << bg.getValue() << endl;
         sleep(1);
     }
     cin.get();
