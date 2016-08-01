@@ -4,14 +4,14 @@
 #include <pcf8591.h>
 
 #include "../config/config.h"
-#include "brightness.h"
+#include "temperature.h"
 
-Brightness::Brightness()
+Temperature::Temperature()
 {
    setAddr(_ADC_BG_ADDRESS);
 }
 
-int Brightness::getValue(void)
+int Temperature::getValue(void)
 {
-    return analogRead(_ADC_BASE_PIN + _ADC_BG_ADDRESS);
+    return analogRead(_ADC_BASE_PIN + _ADC_DIO_ADDRESS);
 }

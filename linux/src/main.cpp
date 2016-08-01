@@ -2,6 +2,7 @@
 #include "led/led.h"
 #include "sensor/ultrasonic.h"
 #include "sensor/brightness.h"
+#include "sensor/temperature.h"
 #include <iostream>
 #include <unistd.h>
 
@@ -13,6 +14,7 @@ int main()
     Motor motor(0, 255);
     LED led(100, 255);
     Brightness bg;
+    Temperature temp;
     led.setPin(4);
     led.on();
     sleep(1);
@@ -30,6 +32,7 @@ int main()
     for(int i = 0; i < 5; i++){
         cout << us.getDistance() << endl;
         cout << bg.getValue() << endl;
+        cout << temp.getValue() << endl;
         sleep(1);
     }
     cin.get();
