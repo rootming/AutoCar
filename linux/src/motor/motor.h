@@ -1,6 +1,6 @@
 #pragma once
-#include "../config/config.h"
-#include "../base/base.h"
+#include "config.h"
+#include "base.h"
 
 
 class Motor: public Base
@@ -17,7 +17,7 @@ class Motor: public Base
         // void setMode(Mode mode) { proMode = mode; };
         virtual void setLeftSpeed(int speed);
         virtual void setRightSpeed(int speed);
-        virtual void brake(void) {};
+        virtual void brake(void) {}
         ~Motor();
         // Mode getMode(void) { return proMode; };
     private:

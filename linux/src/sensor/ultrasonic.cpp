@@ -1,7 +1,7 @@
 #include <wiringPi.h>
 #include <softPwm.h>
 #include "ultrasonic.h"
-#include "../config/config.h"
+#include "config.h"
 
 UltraSonic::UltraSonic()
 {

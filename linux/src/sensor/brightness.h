@@ -1,5 +1,5 @@
 #pragma once
-#include "../config/config.h"
+#include "config.h"
 #include "mypcf8591.h"
 
 class Brightness: public MyPCF8591
@@ -8,7 +8,7 @@ class Brightness: public MyPCF8591
         explicit Brightness(const Brightness &) = delete;
         Brightness &operator=(const Brightness &) = delete;
         Brightness();
-        ~Brightness(){};
+        ~Brightness(){}
         int getValue(void);        
     // private:
     //     int proAddr;

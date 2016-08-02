@@ -1,6 +1,6 @@
 #pragma once
-#include "../config/config.h"
-#include "../base/base.h"
+#include "config.h"
+#include "base.h"
 
 class LED: public Base
 {

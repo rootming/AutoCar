@@ -3,7 +3,7 @@
 #include <wiringPi.h>
 #include <pcf8591.h>
 
-#include "../config/config.h"
+#include "config.h"
 #include "mypcf8591.h"
 
 bool MyPCF8591::inited = false;

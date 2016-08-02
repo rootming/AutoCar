@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.0)
 
 PROJECT(Server)
 
-set(SRC_PART_DIR base motor sensor)
+set(SRC_PART_DIR base motor sensor config)
 aux_source_directory(. DIR_SRCS)
 include_directories(${SRC_PART_DIR})
 add_subdirectory(base)

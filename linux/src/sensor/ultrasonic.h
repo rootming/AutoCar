@@ -1,6 +1,6 @@
 #pragma once
 #include <thread>
-#include "../base/base.h"
+#include "base.h"
 
 using namespace std;
 
