@@ -11,14 +11,14 @@ class Base
                 cerr << "GPIO not init, now init..." << endl;
             initGPIO();
             inited = false; 
+            }
         }
-        };
         void setPin()
         {
             cerr << "Method now implement." << endl;
             // inited = true;
-        };
-        bool isInit() { return inited; };
+        }
+        bool isInit() { return inited; }
         static Base *base;
 
     private:
