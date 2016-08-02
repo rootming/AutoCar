@@ -2,29 +2,57 @@
 #include <softPwm.h>
 #include <iostream>
 #include <cstdlib>
+#include "led.h"
 
 using namespace std;
 
-const int _LED_PIN = 0;
-const int _RANGE = 255;
-
-
-int main()
+LED::~LED()
 {
-	if(-1 == wiringPiSetup()){
-		cerr << "WiringPi init failed." << endl;
-		exit(1);
-	}
-	softPwmCreate(_LED_PIN, 0, _RANGE);
-	for(;;){
-		for(int i = 0; i < _RANGE; i++){
-			softPwmWrite (_LED_PIN, i);
-			delay(50);
-		}
-		for(int i = _RANGE; i > 0; i--){
-			softPwmWrite (_LED_PIN, i);
-			delay(50);
-		}
+	if(proRange == 0)
+		digitalWrite(proPin, LOW);
+	else
+		softPwmStop(proPin);
+}
 
+
+void LED::setPin(int pin)
+{
+	inited = true;
+	proPin = pin;
+	if(proRange == 0){
+		pinMode(proPin, OUTPUT);
+		digitalWrite(proPin, LOW);
+	}else{
+		softPwmCreate(proPin, 0, proRange);
+	}
+
+}
+
+void LED::setBrightness(int brigthness)
+{
+	if(proRange == 0){
+		cerr << "Not support.\n";
+		return;
+	}
+	proBG = brigthness;
+	softPwmWrite(proPin, proBG);
+}
+
+void LED::on()
+{
+	if(proRange == 0){
+		digitalWrite(proPin, HIGH);
+	}else{
+		softPwmWrite(proPin, proBG);
+	}
+}
+
+
+void LED::off()
+{
+	if(proRange == 0){
+		digitalWrite(proPin, LOW);
+	}else{
+		softPwmWrite(proPin, 0);
 	}
 }
