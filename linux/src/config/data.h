@@ -2,11 +2,11 @@
 
 #include <inttypes.h>
 
-#define _MAGIC_NUM      0x16
-#define _BUFFER_SIZE    10240
-#define _CONNECT_LIMIT  10
-#define _SERVER_PORT    23333
-#define _UDP_PORT       2333
+#define MAGIC_NUM      0x16
+#define BUFFER_SIZE    10240
+#define CONNECT_LIMIT  10
+#define SERVER_PORT    23333
+#define UDP_PORT       2333
 
 enum CMD_LIST { _CMD_DISCONNECT , _CMD_POST };
 
@@ -17,5 +17,5 @@ typedef struct _PackageHead
     int16_t length;
 } PackageHead;
 
-#define _HEAD_LENGTH sizeof(PackageHead)
+#define HEAD_LENGTH sizeof(PackageHead)
 

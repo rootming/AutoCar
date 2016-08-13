@@ -9,6 +9,6 @@ class Temperature: public MyPCF8591
         Temperature &operator=(const Temperature &) = delete;
         Temperature();
         ~Temperature(){}
-        int getValue(void);        
+        int getValue(void);
     
 };
