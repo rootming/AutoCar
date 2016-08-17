@@ -8,6 +8,9 @@ using namespace std;
 
 Base * Base::base = nullptr;
 
+
+
+
 void Base::initGPIO()
 {
     if(-1 == wiringPiSetup()){
