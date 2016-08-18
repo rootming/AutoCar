@@ -8,7 +8,9 @@
 
 Temperature::Temperature()
 {
-   setAddr(ADC_BG_ADDRESS);
+    setDeviceName("Temperature Sensor");
+    setDeviceType(SENSOR);
+    setAddr(ADC_BG_ADDRESS);
 }
 
 int Temperature::getValue(void)

@@ -8,13 +8,12 @@
 
 Brightness::Brightness()
 {
-   setAddr(ADC_BG_ADDRESS);
-   setDeviceName("Brightness Sensor");
-   setDeviceType(SENSOR);
-
+    setDeviceName("Brightness Sensor");
+    setDeviceType(SENSOR);
+    setAddr(ADC_BG_ADDRESS);
 }
 
-int Brightness::getValue(void)
+int Brightness::getValue()
 {
     return analogRead(ADC_BASE_PIN + ADC_BG_ADDRESS);
 }

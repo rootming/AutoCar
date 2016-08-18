@@ -5,6 +5,8 @@
 
 UltraSonic::UltraSonic()
 {
+    setDeviceName("Utrasonic Sensor");
+    setDeviceType(SENSOR);
     scanThread = nullptr;
     index = 0;
     start = false;

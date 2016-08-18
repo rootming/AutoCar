@@ -3,7 +3,7 @@
 #include "base.h"
 
 
-class MyPCF8591: public Base, Device
+class MyPCF8591: public Base
 {
     public:
         explicit MyPCF8591(const MyPCF8591 &) = delete;
