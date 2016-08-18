@@ -3,7 +3,7 @@
 #include "base.h"
 
 
-class Motor: public Base
+class Motor: public Base, Device
 {
     public:
         // enum Mode { ONE_STEP, TWO_STEP };
@@ -11,9 +11,9 @@ class Motor: public Base
         explicit Motor(const Motor &) = delete;
         Motor &operator=(const Motor &) = delete;
         Motor(int speed, int range = 255);
-        void setPin(int left = _MOTOR_LEFT_PIN, int right = _MOTOR_RIGHT_PIN, 
-                int INT0 = _MOTOR_INT0_PIN, int INT1 = _MOTOR_INT1_PIN, 
-            int INT2 = _MOTOR_INT2_PIN, int INT3 = _MOTOR_INT3_PIN);
+        void setPin(int left = MOTOR_LEFT_PIN, int right = MOTOR_RIGHT_PIN,
+                int INT0 = MOTOR_INT0_PIN, int INT1 = MOTOR_INT1_PIN,
+            int INT2 = MOTOR_INT2_PIN, int INT3 = MOTOR_INT3_PIN);
         // void setMode(Mode mode) { proMode = mode; };
         virtual void setLeftSpeed(int speed);
         virtual void setRightSpeed(int speed);

@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-enum DEVICE_TYPE { SENSOR, CONTROLER, MOTOR };
+enum DEVICE_TYPE { SENSOR, CONTROLER, MOTOR, OTHER };
 
 class Device
 {

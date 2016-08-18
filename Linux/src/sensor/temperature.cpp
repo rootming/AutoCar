@@ -8,10 +8,10 @@
 
 Temperature::Temperature()
 {
-   setAddr(_ADC_BG_ADDRESS);
+   setAddr(ADC_BG_ADDRESS);
 }
 
 int Temperature::getValue(void)
 {
-    return analogRead(_ADC_BASE_PIN + _ADC_DIO_ADDRESS);
+    return analogRead(ADC_BASE_PIN + ADC_DIO_ADDRESS);
 }

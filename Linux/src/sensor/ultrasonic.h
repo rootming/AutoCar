@@ -4,7 +4,7 @@
 
 using namespace std;
 
-class UltraSonic: public Base
+class UltraSonic: public Base, Device
 {
     public:
         explicit UltraSonic(const UltraSonic &) = delete;

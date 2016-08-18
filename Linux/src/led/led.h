@@ -2,12 +2,16 @@
 #include "config.h"
 #include "base.h"
 
-class LED: public Base
+class LED: public Base, Device
 {
      public:
         explicit LED(const LED &) = delete;
         LED &operator=(const LED &) = delete;
-        LED(int brigthness = 0, int range = 0): proBG(brigthness), proRange(range) {}
+        LED(int brigthness = 0, int range = 0): proBG(brigthness), proRange(range)
+        {
+            setDeviceName("Front LED");
+            setDeviceType(OTHER);
+        }
         ~LED();
         void on();
         void off();

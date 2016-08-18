@@ -2,7 +2,7 @@
 #include "config.h"
 #include "mypcf8591.h"
 
-class Temperature: public MyPCF8591
+class Temperature: public MyPCF8591, Device
 {
      public:
         explicit Temperature(const Temperature &) = delete;

@@ -1,8 +1,9 @@
 #pragma once
 #include "config.h"
+#include "base.h"
 #include "mypcf8591.h"
 
-class Brightness: public MyPCF8591
+class Brightness: public MyPCF8591, Device
 {
     public:
         explicit Brightness(const Brightness &) = delete;

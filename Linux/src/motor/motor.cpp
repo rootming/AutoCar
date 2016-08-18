@@ -10,6 +10,8 @@ using namespace std;
 
 Motor::Motor(int speed, int range): proLeftSpeed(speed), proRightSpeed(speed), proRange(range)
 {
+    setDeviceName("Motor");
+    setDeviceType(MOTOR);
     
 }
 

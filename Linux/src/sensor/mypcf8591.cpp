@@ -12,7 +12,7 @@ MyPCF8591::MyPCF8591()
 {
     if(!inited){
         cerr << "Init PCF8591.\n" << endl;
-        pcf8591Setup(_ADC_BASE_PIN, _ADC_BASE_ADDRESS);
+        pcf8591Setup(ADC_BASE_PIN, ADC_BASE_ADDRESS);
         inited = true;
     }
 }
