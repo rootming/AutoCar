@@ -14,7 +14,7 @@ typedef struct _PackageHead
 {
     uint8_t magic;
     uint8_t command;
-    int16_t length;
+    uint16_t length;
 } PackageHead;
 
 #define HEAD_LENGTH sizeof(PackageHead)
