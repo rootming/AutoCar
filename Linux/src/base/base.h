@@ -11,8 +11,8 @@ public:
     DEVICE_TYPE getDeviceType() const { return type; }
 
 protected:
-    void setDeviceName(string name);
-    void setDeviceType(DEVICE_TYPE type);
+    void setDeviceName(string name){ this->name = name; }
+    void setDeviceType(DEVICE_TYPE type){ this->type = type; }
 
 private:
     DEVICE_TYPE type;
