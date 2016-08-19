@@ -14,7 +14,7 @@ Base * Base::base = nullptr;
 Device::Device()
 {
     deviceList.push_back(this);
-    cout << "Add new Device" << endl;
+    cout << "Add new device:" << endl;
 }
 
 Device::~Device()
@@ -28,12 +28,13 @@ Device::~Device()
             it++;
         }
     }
+    cout << "Removed device." << endl;
 }
 
 void Device::listDevice()
 {
     for(auto it : deviceList){
-        cout << "Device name:" << it->getDeviceName() << "\tType:";
+        cout << "Device name:" << it->getDeviceName() << "\nType:";
         switch(it->getDeviceType()){
         case Device::MISC:
             cout << "MISC";
