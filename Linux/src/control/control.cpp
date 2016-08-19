@@ -1,5 +1,7 @@
 #include "control.h"
 
+vector<Control *> Control::controlList;
+
 Control::Control()
 {
     controlList.push_back(this);
