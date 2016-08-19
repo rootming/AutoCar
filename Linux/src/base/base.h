@@ -1,14 +1,20 @@
 #pragma once
 #include <iostream>
+#include <vector>
 using namespace std;
 
-enum DEVICE_TYPE { SENSOR, CONTROLER, MOTOR, OTHER };
+
 
 class Device
 {
 public:
+    Device();
+    ~Device();
+    enum DEVICE_TYPE { SENSOR, MOTOR, MISC, OTHER };
     string getDeviceName() const { return name; }
     DEVICE_TYPE getDeviceType() const { return type; }
+    static void listDevice();
+    static vector<Device *> deviceList;
 
 protected:
     void setDeviceName(string name){ this->name = name; }
