@@ -17,8 +17,8 @@ public:
     static void listControl();
     static vector<Control *> controlList;
 protected:
-    void setControlName(string name);
-    void setControlType(CONTROL_TYPE type);
+    void setControlName(string name){ this->name = name; }
+    void setControlType(CONTROL_TYPE type){ this->type = type; }
 
 private:
     CONTROL_TYPE type;
