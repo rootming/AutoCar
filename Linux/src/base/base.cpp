@@ -14,7 +14,7 @@ Base * Base::base = nullptr;
 Device::Device()
 {
     deviceList.push_back(this);
-    cout << "Add new Control" << endl;
+    cout << "Add new Device" << endl;
 }
 
 Device::~Device()
@@ -33,7 +33,24 @@ Device::~Device()
 void Device::listDevice()
 {
     for(auto it : deviceList){
-        cout << it->getDeviceName() << endl;
+        cout << "Device name:" << it->getDeviceName() << ", type:";
+        switch(it->getDeviceType()){
+        case Device::MISC:
+            cout << "MISC";
+            break;
+
+        case Device::MOTOR:
+            cout << "MOTOR";
+            break;
+
+        case Device::SENSOR:
+            cout << "SENSOR";
+            break;
+        case Device::OTHER:
+            cout << "OTHER";
+            break;
+        }
+        cout << endl;
     }
 }
 

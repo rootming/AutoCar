@@ -23,8 +23,6 @@ protected:
 private:
     DEVICE_TYPE type;
     string name;
-
-
 };
 
 class Base

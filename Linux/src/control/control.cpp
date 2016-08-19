@@ -10,11 +10,6 @@ Control::Control()
 
 Control::~Control()
 {
-//    for(auto it : controlList){
-//        if(it == this){
-//            controlList.erase(it);
-//        }
-//    }
     for(vector<Control *>::iterator it = controlList.begin();
         it != controlList.end();){
         if(*it == this){
@@ -29,6 +24,21 @@ Control::~Control()
 void Control::listControl()
 {
     for(auto it : controlList){
-        cout << it->getControlName() << endl;
+        cout << "Control name:" << it->getControlName() << ", type:";
+        switch(it->getControlType()){
+        case Control::SENSOR:
+            cout << "SENSOR";
+            break;
+
+        case Control::MOTION:
+            cout << "MOTION";
+            break;
+
+        case Control::OTHER:
+            cout << "OTHER";
+            break;
+
+        }
+        cout << endl;
     }
 }
