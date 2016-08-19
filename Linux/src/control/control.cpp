@@ -24,7 +24,7 @@ Control::~Control()
 void Control::listControl()
 {
     for(auto it : controlList){
-        cout << "Control name:" << it->getControlName() << ", type:";
+        cout << "Control name:" << it->getControlName() << "\tType:";
         switch(it->getControlType()){
         case Control::SENSOR:
             cout << "SENSOR";
@@ -32,6 +32,10 @@ void Control::listControl()
 
         case Control::MOTION:
             cout << "MOTION";
+            break;
+
+        case Control::MISC:
+            cout << "MISC";
             break;
 
         case Control::OTHER:

@@ -33,7 +33,7 @@ Device::~Device()
 void Device::listDevice()
 {
     for(auto it : deviceList){
-        cout << "Device name:" << it->getDeviceName() << ", type:";
+        cout << "Device name:" << it->getDeviceName() << "\tType:";
         switch(it->getDeviceType()){
         case Device::MISC:
             cout << "MISC";

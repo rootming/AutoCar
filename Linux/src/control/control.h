@@ -11,7 +11,7 @@ class Control
 public:
     Control();
     ~Control();
-    enum CONTROL_TYPE { SENSOR, MOTION, OTHER };
+    enum CONTROL_TYPE { SENSOR, MOTION, MISC, OTHER };
     string getControlName() const { return name; }
     CONTROL_TYPE getControlType() const { return type; }
     static void listControl();
