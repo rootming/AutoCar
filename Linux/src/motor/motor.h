@@ -30,7 +30,7 @@ class Motor: public Base, Device
         int proLeftSpeed;
         int proRightSpeed;
         int proRange;
-        int proDelay;
+//        int proDelay;
 
         // Mode proMode;
 

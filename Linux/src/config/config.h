@@ -23,3 +23,10 @@
 #define ADC_DIO_ADDRESS        0x0
 #define ADC_BG_ADDRESS         0x1
 
+#define DEF_DELAY 100
+#define DEF_LEVEL 120
+
+#define DEF
+#define DEF_BRAKE_DELAY 100
+
+#define DEF_BCM_TEMP_FILE "/sys/class/thermal/thermal_zone0/tmep"

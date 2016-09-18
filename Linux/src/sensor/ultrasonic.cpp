@@ -10,7 +10,6 @@ UltraSonic::UltraSonic()
     scanThread = nullptr;
     index = 0;
     start = false;
-
 }
 
 UltraSonic::~UltraSonic()
@@ -38,6 +37,7 @@ void UltraSonic::autoScan(void)
         return;
     }
     scanThread = new thread([&]{ autoGetDistance(); });
+    delay(100);
 }
 
 double UltraSonic::getDistance(void)

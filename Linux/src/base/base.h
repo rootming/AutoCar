@@ -3,18 +3,19 @@
 #include <vector>
 using namespace std;
 
-
-
 class Device
 {
 public:
+    explicit Device(const Device &) = delete;
+    Device &operator=(const Device &) = delete;
     Device();
-    ~Device();
+    virtual ~Device();
     enum DEVICE_TYPE { SENSOR, MOTOR, MISC, OTHER };
     string getDeviceName() const { return name; }
     DEVICE_TYPE getDeviceType() const { return type; }
     static void listDevice();
     static vector<Device *> deviceList;
+    virtual bool selfCheck();
 
 protected:
     void setDeviceName(string name){ this->name = name; }
@@ -50,4 +51,9 @@ private:
 protected:
     bool inited;
 
+};
+
+struct Postion
+{
+    int32_t x, y;
 };

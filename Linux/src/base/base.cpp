@@ -14,7 +14,7 @@ Base * Base::base = nullptr;
 Device::Device()
 {
     deviceList.push_back(this);
-    cout << "Add new device:" << endl;
+    cout << "Add new device." << endl;
 }
 
 Device::~Device()
